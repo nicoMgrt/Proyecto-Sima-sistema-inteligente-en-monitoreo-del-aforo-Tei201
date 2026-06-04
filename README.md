@@ -1,0 +1,2 @@
+# Proyecto-Sima-sistema-inteligente-en-monitoreo-del-aforo-Tei201
+El proyecto Sima se basa en la estructura y diseño de una plataforma web que monitorea el aforo estudiantil presente en la biblioteca ubicada en el edificio F de la universidad Adolfo ibañez. Su objetivo es monitorear y dar a conocer en tiempo real el aforo presente en la zona de estudio por medio de un sensor 3D al público estudiantil.
