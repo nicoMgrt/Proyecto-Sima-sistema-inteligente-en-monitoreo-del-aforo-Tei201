@@ -1,9 +1,9 @@
 ### Información del Equipo
 - **Integrantes:**
-  - Nombre 1 - Rol 1
-  - Nombre 2 - Rol 2
-  - Nombre 3 - Rol 3
-  - Nombre 4 - Rol 4
+  - Nombre 1: Bárbara Chaparro   - Rol 1:
+  - Nombre 2: Nicolás Marinkovic - Rol 2:
+  - Nombre 3: Cristóbal Pérez    - Rol 3:
+  - Nombre 4: Valentina Ramírez  - Rol 4:
   
 - **ODS Seleccionado:** ODS 11: Ciudades y comunidades sostenibles
 - **Problema a resolver:** [Descripción breve]
