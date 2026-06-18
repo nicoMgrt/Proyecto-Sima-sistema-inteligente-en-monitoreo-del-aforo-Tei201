@@ -25,7 +25,7 @@ Documentación técnica del software
 - [Librería 1] - Versión X.X
 - [Librería 2] - Versión X.X
 - [Librería 3] - Versión X.X
-
+maaaaaaambo
 ---
 
 ## Instalación y Configuración
