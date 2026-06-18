@@ -5,7 +5,7 @@
   - Nombre 3 - Rol 3
   - Nombre 4 - Rol 4
   
-- **ODS Seleccionado:** [Número y nombre]
+- **ODS Seleccionado:** ODS 11: Ciudades y comunidades sostenibles
 - **Problema a resolver:** [Descripción breve]
 
 ### Descripción del Proyecto
