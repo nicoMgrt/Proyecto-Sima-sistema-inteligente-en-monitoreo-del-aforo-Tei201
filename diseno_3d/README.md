@@ -61,14 +61,14 @@ Planos técnicos con cotas
 
 ## Configuración de Impresión 3D (si fue utilizada)
 
-**Impresora:** [Modelo: ]  
+**Impresora:** [Modelo: Bambu Lab A1 ]  
 **Material:** [PLA]  
 **Calidad de capa:** 0.2mm  
-**Relleno:** 20-30%  
-**Soportes:** [Sí/No - dónde]  
-**Temperatura nozzle:** [°C]  
-**Temperatura cama:** [°C]  
-**Velocidad:** [mm/s]
+**Relleno:** 8%  
+**Soportes:** [Sí - En las áreas donde el ángulo de impresión supera los 45° y hay voladizo]  
+**Temperatura nozzle:** [210°C]  
+**Temperatura cama:** [65 °C]  
+**Velocidad:** [200 mm/s]
 
 **Tiempo estimado de impresión:** [8 horas]  
 **Peso de material:** [133 gramos]
