@@ -36,6 +36,7 @@ Planos técnicos con cotas
 **Escala:** 1:1 (dimensiones reales)
 
 **Dimensiones externas:** Caja chica: [41.358 mm × 46 mm × 68.181 mm]  Caja grande: [80.358 mm x 46 mm x 108.181 mm]
+
 **Peso estimado:** [133 gramos]  
 **Material:** PLA
 
