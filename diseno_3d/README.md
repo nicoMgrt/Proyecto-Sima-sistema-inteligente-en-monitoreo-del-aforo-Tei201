@@ -70,5 +70,5 @@ Planos técnicos con cotas
 **Temperatura cama:** [65 °C]  
 **Velocidad:** [200 mm/s]
 
-**Tiempo estimado de impresión:** [8 horas]  
+**Tiempo estimado de impresión:** [2 horas caja chica y 5 horas caja grande]  
 **Peso de material:** [133 gramos]
