@@ -35,8 +35,8 @@ Planos técnicos con cotas
 **Unidades:** Milímetros (mm)  
 **Escala:** 1:1 (dimensiones reales)
 
-**Dimensiones externas:** [X mm × Y mm × Z mm]  
-**Peso estimado:** [XXX gramos]  
+**Dimensiones externas:** [41.358 mm × 46 mm × 68.181 mm]  
+**Peso estimado:** [130 gramos]  
 **Material:** PLA
 
 ---
