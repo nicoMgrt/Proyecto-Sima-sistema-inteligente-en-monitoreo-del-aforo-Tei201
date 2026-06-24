@@ -60,8 +60,8 @@ Planos técnicos con cotas
 
 ## Configuración de Impresión 3D (si fue utilizada)
 
-**Impresora:** [Modelo]  
-**Material:** [PLA/ABS/PETG]  
+**Impresora:** [Modelo: ]  
+**Material:** [PLA]  
 **Calidad de capa:** 0.2mm  
 **Relleno:** 20-30%  
 **Soportes:** [Sí/No - dónde]  
@@ -69,5 +69,5 @@ Planos técnicos con cotas
 **Temperatura cama:** [°C]  
 **Velocidad:** [mm/s]
 
-**Tiempo estimado de impresión:** [X horas]  
-**Peso de material:** [X gramos]
+**Tiempo estimado de impresión:** [8 horas]  
+**Peso de material:** [133 gramos]
