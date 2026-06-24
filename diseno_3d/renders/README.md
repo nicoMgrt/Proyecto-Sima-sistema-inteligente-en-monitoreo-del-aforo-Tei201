@@ -1,54 +1,38 @@
-# Renders de Alta Calidad
+# Renders — Visualización del encapsulado
 
-## Renders Requeridos (Mínimo 4 ángulos)
+Esta carpeta contiene los renders del encapsulado generados desde el workspace Render de Autodesk Fusion 360 con materiales aplicados e iluminación configurada.
 
-### 1. Vista Isométrica Frontal
-`01_isometrica_frontal.png`
-- Muestra exterior completo
-- Iluminación clara
-- Resolución: 1920×1080 mínimo
+## Archivos
 
-### Renders Opcionales (Recomendados)
-- `02_detalle_sensores.png` - Close-up de sensores
-- `03_ensamble_explosionado.png` - Componentes separados
-- `04_variantes_color.png` - Si hay opciones de diseño
+| Archivo | Descripción |
+|---|---|
+| `render_exterior.png` | Vista isométrica exterior con tapa cerrada |
+| `render_interior.png` | Vista superior con tapa removida mostrando componentes internos |
+| `render_explosionado.png` | Vista explosionada mostrando ensamble de todas las piezas |
 
----
+## Configuración de render utilizada
 
-## Configuración de Render en Fusion 360
+- **Software:** Autodesk Fusion 360 — workspace Render
+- **Motor de render:** Fusion 360 Cloud Render
+- **Resolución:** 1920 × 1080 px
+- **Iluminación:** Soft Box
+- **Fondo:** Color sólido blanco
 
-### Settings Recomendados
-- **Render Engine:** Local / Cloud
-- **Environment:** [Tipo de iluminación]
-- **Resolution:** 1920×1080 o superior
-- **Quality:** High
-- **Exposure:** [Ajustado para visibilidad]
-- **Effects:** Ambient Occlusion ON
+## Materiales aplicados
 
-### Materiales y Apariencias
-Asignar materiales realistas:
-- Plástico: PLA/ABS mate o satinado
-- Electrónica: PCB verde, componentes negros
-- Metales: Tornillos acero inoxidable
+| Componente | Material en Fusion |
+|---|---|
+| Carcasa y tapa | ABS Plastic — gris claro |
+| ESP32-S3 | PCB — verde |
+| Sensores HC-SR04 | ABS Plastic — verde |
+| Batería NCR18650B | Steel — acabado metálico |
+| Shield de batería | PCB — verde oscuro |
+| Postes espaciadores | Aluminio |
 
----
+## Vistas incluidas y su propósito
 
-## Nomenclatura de Archivos
-```
-[numero]_[descripcion]_[version].png
+**Render exterior:** Muestra el encapsulado terminado tal como se vería el producto final. Permite evaluar las proporciones, acceso a puertos y acabado general.
 
-Ejemplo:
-01_isometrica_frontal_v3.png
-```
+**Render interior:** Con la tapa removida se aprecia el layout de componentes y verifica que todos caben sin interferencias. Demuestra el criterio de diseño para la reparación — los componentes son accesibles sin destruir el encapsulado.
 
----
-
-## Checklist de Calidad
-
-- [ ] Resolución mínima 1920×1080
-- [ ] Formato PNG (con transparencia si aplica)
-- [ ] Iluminación sin sombras excesivas
-- [ ] Componentes internos visibles en corte
-- [ ] Fondo neutro o contextual apropiado
-- [ ] Sin aliasing o bordes pixelados
-- [ ] Todos los componentes críticos visibles
+**Render explosionado:** Muestra la relación entre cada pieza del ensamble y el orden de montaje. Útil para entender cómo se arma el dispositivo en campo.
