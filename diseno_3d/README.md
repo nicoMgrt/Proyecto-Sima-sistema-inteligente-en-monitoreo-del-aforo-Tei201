@@ -37,7 +37,7 @@ Planos técnicos con cotas
 
 **Dimensiones externas:** [X mm × Y mm × Z mm]  
 **Peso estimado:** [XXX gramos]  
-**Material:** [PLA, ABS, PETG, etc.]
+**Material:** PLA
 
 ---
 
