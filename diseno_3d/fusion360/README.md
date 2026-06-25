@@ -34,8 +34,10 @@ Documentar las juntas principales y sus restricciones
 
 ### Parámetros
 Listar parámetros principales utilizados:
-- `ancho_total = 120mm`
-- `alto_total = 80mm`
+- `ancho_total =
+  Caja chica: 68.181 mm
+  Caja grande:108.181 mm`
+- `alto_total = 46 mm`
 - `grosor_pared = 2mm`
 
 ---
