@@ -56,7 +56,7 @@ Listar parámetros principales utilizados:
 | Versión | Fecha | Cambios Principales |
 |---------|-------|---------------------|
 | v3.0 | [22/06/2026-.] | Versión final |
-| v2.1 | [18/06/2026-.] | Modelaje de la caja a partir de componentes |
+| v2.0 | [18/06/2026-.] | Modelaje de la caja a partir de componentes |
 | v1.0 | [15/06/2026-.] | Modelaje de componentes |
 
 ---
