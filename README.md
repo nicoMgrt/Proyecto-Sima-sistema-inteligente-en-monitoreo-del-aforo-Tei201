@@ -110,7 +110,7 @@ http://[IP_DEL_DISPOSITIVO]/admin-reset-biblioteca
 ### 5. Ver los datos históricos
 
 - 📊 **Google Sheets:** [Ver registro de eventos](https://docs.google.com/spreadsheets/d/TU_ID_DE_SCRIPT)
-- 📈 **Google Looker Studio:** *Próximamente*
+- 
 
 ---
 
