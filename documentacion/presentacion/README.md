@@ -87,8 +87,8 @@ Sensores capturan → ESP32 procesa dirección → Google Sheets almacena → Lo
 | 2× HC-SR04 Seeed (3 pines) | Detección direccional entrada/salida | $9.980 |
 | Batería NCR18650B Panasonic | Autonomía 16–20 horas continuas | $2.000 |
 | Shield cargador 18650 | Gestión de batería + boost 5V | $3.990 |
-| Encapsulado PLA (impresión 3D) | Protección y montaje | $0 |
-| **TOTAL** | | **$28.430 CLP** |
+| Encapsulado PLA (impresión 3D) | Protección y montaje | $5.000 |
+| **TOTAL** | | **$27.960 CLP** |
 
 **Dato clave para defender:** Se eligió el sensor Seeed de 3 pines sobre el HC-SR04 de 4 pines porque opera a 3.3V de forma nativa, eliminando el riesgo de quemar el ESP32-S3 y simplificando el cableado.
 
