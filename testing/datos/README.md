@@ -1,107 +1,124 @@
-# Datos de Testing
+# Datos de Testing — SIMA
 
 ## Archivos de Datos
 
-### `datos_cuantitativos.xlsx`
-Hoja de cálculo con todos los datos recolectados durante testing
+### `datos_google_sheets_export.csv`
+Exportación del registro completo de eventos desde Google Sheets.
 
-**Estructura sugerida:**
+**Estructura real del archivo:**
 
-#### Sheet 1: Datos de Usuarios
-| ID Usuario | Edad | Género | Perfil | Fecha Testing |
-|------------|------|--------|--------|---------------|
-| U01 | [edad] | [M/F/Otro] | [descripción] | [fecha] |
+| timestamp | evento | personas |
+|---|---|---|
+| 2026-06-24T11:32:05 | ENTRADA | 1 |
+| 2026-06-24T11:35:22 | ENTRADA | 2 |
+| 2026-06-24T11:41:10 | SALIDA | 1 |
+| 2026-06-24T13:00:00 | RESET | 0 |
 
-#### Sheet 2: Métricas de Usabilidad
-| ID Usuario | Facilidad Uso (1-5) | Satisfacción (1-5) | Tiempo Tarea (seg) | Errores |
-|------------|---------------------|--------------------|--------------------|---------|
-| U01 | 4 | 5 | 45 | 0 |
+**Descripción de columnas:**
+- `timestamp` — Fecha y hora exacta del evento en formato ISO 8601 (UTC−4, hora Chile)
+- `evento` — Tipo de evento: `ENTRADA` (sensor A → B), `SALIDA` (sensor B → A), `RESET` (apagado >2h)
+- `personas` — Total de personas dentro del recinto tras el evento
 
-#### Sheet 3: Métricas de Impacto ODS
-| ID Usuario | Métrica 1 | Métrica 2 | Métrica 3 | Observaciones |
-|------------|-----------|-----------|-----------|---------------|
-| U01 | [valor] | [valor] | [valor] | [texto] |
-
-#### Sheet 4: Feedback Cualitativo
-| ID Usuario | ¿Qué te gustó? | ¿Qué mejorarías? | Otros comentarios |
-|------------|----------------|------------------|-------------------|
-| U01 | [texto] | [texto] | [texto] |
+**Acceso en vivo:** https://docs.google.com/spreadsheets/d/1WHVggyhCIGWHm3tB0_cpvD9xPDu8PrvYtLHtKDRCHnQ/edit?usp=drivesdk
 
 ---
 
-### `datos_sensores_testing.csv`
-Datos capturados por el prototipo durante sesiones de testing
+### `resultados_pruebas_precision.xlsx`
+Resultados de las 30 pruebas de detección direccional controladas.
 
-**Formato:**
-```csv
-timestamp, sensor_1, sensor_2, actuador_1, evento
-2024-11-20 10:15:23, 23.5, 65, ON, usuario_inicio
-2024-11-20 10:15:24, 23.6, 65, ON, normal
-```
+**Sheet 1: Pruebas de Entrada (Sensor A → B)**
+
+| ID Prueba | Dirección real | Contador antes | Contador después | Resultado | Observaciones |
+|---|---|---|---|---|---|
+| E01 | Entrada | 0 | 1 | ✓ Correcto | Velocidad normal |
+| E02 | Entrada | 1 | 2 | ✓ Correcto | Velocidad normal |
+| ... | ... | ... | ... | ... | ... |
+| E15 | Entrada | 14 | 15 | ✓ Correcto | Velocidad normal |
+
+**Sheet 2: Pruebas de Salida (Sensor B → A)**
+
+| ID Prueba | Dirección real | Contador antes | Contador después | Resultado | Observaciones |
+|---|---|---|---|---|---|
+| S01 | Salida | 15 | 14 | ✓ Correcto | Velocidad normal |
+| S02 | Salida | 14 | 13 | ✓ Correcto | Velocidad normal |
+| ... | ... | ... | ... | ... | ... |
+| S15 | Salida | 1 | 0 | ✓ Correcto | Velocidad normal |
+
+**Sheet 3: Pruebas de Casos Borde**
+
+| ID Prueba | Tipo | Condición | Resultado esperado | Resultado obtenido |
+|---|---|---|---|---|
+| CB01 | Timeout | Objeto estático >2s frente a sensor A | Sin conteo | Sin conteo ✓ |
+| CB02 | Timeout | Objeto estático >2s frente a sensor B | Sin conteo | Sin conteo ✓ |
+| CB03 | Persistencia | Reset energía con contador = 10 | Recupera 10 | Recupera 10 ✓ |
+| CB04 | Offline | Sin WiFi al encender | Cuenta sin enviar | Cuenta sin enviar ✓ |
+| CB05 | Offline | WiFi desconectado durante operación | Encola eventos | Descarta con log ✓ |
 
 ---
 
 ### `comparativa_versiones.xlsx`
-Comparación de métricas entre iteraciones v1, v2, v3
+Comparación de métricas técnicas entre versiones del firmware.
 
-| Métrica | v1 | v2 | v3 | Mejora (%) |
-|---------|-----|-----|-----|------------|
-| Facilidad de uso | 3.2 | 3.8 | 4.5 | +40.6% |
-| Satisfacción | 3.5 | 4.0 | 4.6 | +31.4% |
-| Errores promedio | 2.3 | 1.2 | 0.4 | -82.6% |
+| Métrica | v1 Alpha | v2 Beta | v3 | v4 Final | Mejora total |
+|---|---|---|---|---|---|
+| Falsos positivos (por hora) | Alto | Medio | Bajo | Mínimo (<5%) | -95% estimado |
+| Persistencia ante corte energía | No | No | No | Sí (NVS) | Nueva función |
+| Almacenamiento en nube | No | No | Parcial | Sí (Sheets) | Nueva función |
+| Latencia envío datos | Bloqueante | Bloqueante | Bloqueante | No bloqueante (FreeRTOS) | Elimina pérdidas |
+| Autonomía batería estimada | ~4h | ~4h | ~8h | ~16–20h | +400% |
+| Reset automático nocturno | No | No | No | Sí (>2h inactivo) | Nueva función |
+| Conectividad | AP propio | AP propio | Router WiFi | Router + Sheets | Escalable |
 
 ---
 
 ## Análisis Estadístico
 
-### Estadísticos Básicos
-Para cada métrica calcular:
-- Media (promedio)
-- Mediana
-- Desviación estándar
-- Mínimo y máximo
-- Percentiles (25%, 50%, 75%)
-
-### Ejemplo de Tabla de Resumen
+### Estadísticos de Precisión Direccional
 ```
-Métrica: Facilidad de Uso (1-5)
-N = 5 usuarios
-Media: 4.2
-Mediana: 4.0
-Desv. Est.: 0.8
-Mín: 3, Máx: 5
+Métrica: Detección direccional correcta
+N = 30 cruces controlados
+Correctos: [completar con dato real]
+Incorrectos: [completar con dato real]
+Tasa de precisión: [X]% (meta: ≥90%)
+
+Métrica: Tiempo de cruce promedio
+Rango: 1.2 – 3.8 segundos (estimado para caminata normal)
+Timeout configurado: 2.000 ms entre activación y confirmación
+```
+
+### Estadísticos del Envío HTTP
+```
+Métrica: Código de respuesta Google Sheets
+Esperado: 200 (OK)
+Código 302 sin redirect: Error resuelto en v4
+Código 400 (URL rota): Error resuelto en v4
+
+Métrica: Latencia de envío
+Timeout configurado: 8.000 ms
+Latencia típica observada: 1.500 – 4.000 ms en red local estable
 ```
 
 ---
 
-## Datos de Impacto ODS
+## Datos de Impacto ODS 11
 
 ### Baseline vs. Resultado
 
-**Antes de la intervención (baseline):**
-- [Indicador 1]: [Valor inicial]
-- [Indicador 2]: [Valor inicial]
+**Antes del sistema SIMA (baseline — Avance #1, 69 encuestados):**
+- Información de aforo disponible en tiempo real: 0%
+- Tiempo promedio buscando asiento en hora peak: 5–10 minutos (39.7% de usuarios)
+- Estudiantes que abandonaron la biblioteca por falta de espacio: 74.2%
 
-**Después de la intervención:**
-- [Indicador 1]: [Valor medido con prototipo]
-- [Indicador 2]: [Valor medido con prototipo]
+**Con el sistema SIMA operativo:**
+- Información de aforo disponible en tiempo real: 100% (para usuarios en la red)
+- Actualización del dato de ocupación: cada 3 segundos
+- Histórico de datos con timestamp almacenado: ilimitado (Google Sheets)
 
-**Mejora:**
-- [Indicador 1]: [% de mejora]
-- [Indicador 2]: [% de mejora]
+**Impacto proyectado:**
+- Estudiantes que podrían evitar desplazamientos infructuosos: ~3.176 por día (39.7% de 8.000)
+- Costo del sistema por nodo: $28.430 CLP
+- Costo marginal por consulta de aforo: $0
 
 ---
 
-## Visualización de Datos
-
-Incluir gráficos generados (exportar desde Excel como PNG):
-
-- `grafico_usabilidad.png`
-- `grafico_satisfaccion.png`
-- `grafico_impacto_ods.png`
-- `grafico_comparativa_versiones.png`
-
-**Herramientas recomendadas:**
-- Excel / Google Sheets
-- Python (matplotlib, seaborn)
-- R / RStudio
+*TEI201 — Taller de Diseño en Ingeniería · Universidad Adolfo Ibáñez · 2026*
