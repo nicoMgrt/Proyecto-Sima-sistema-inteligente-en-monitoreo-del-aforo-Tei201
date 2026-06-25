@@ -39,13 +39,13 @@ Primera versión del prototipo, enfocada en validar la factibilidad técnica del
 ## Resultados de Testing Inicial
 
 **Funcionalidad Lograda**
-* ✅ Levantar un servidor web básico incrustado en la placa.
-* ✅ Detección cruda de movimiento frente al sensor.
+* Levantar un servidor web básico incrustado en la placa.
+* Detección cruda de movimiento frente al sensor.
 
 **Funciones Fallidas**
-* ❌ Mantener conexión estable a la red institucional (UAI).
-* ❌ Lectura confiable de distancias de ambos sensores simultáneamente.
-* ❌ Lógica de conteo estricto (se registraban múltiples ingresos por una sola persona).
+* Mantener conexión estable a la red institucional (UAI).
+* Lectura confiable de distancias de ambos sensores simultáneamente.
+* Lógica de conteo estricto (se registraban múltiples ingresos por una sola persona).
 
 ## Problemas Identificados
 
