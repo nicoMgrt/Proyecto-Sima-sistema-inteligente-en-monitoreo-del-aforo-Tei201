@@ -59,4 +59,5 @@ Listar parámetros principales utilizados:
 | v2.0 | [18/06/2026-.] | Modelaje de la caja a partir de componentes |
 | v1.0 | [15/06/2026-.] | Modelaje de componentes |
 
+Archivos adjuntados en el documento
 ---
