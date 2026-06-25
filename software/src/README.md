@@ -25,11 +25,11 @@
 #define AFORO_MAX  295
 
 // Datos para que el equipo se conecte a un internet en específico
-const char* ssid     = "Hermes my beloved";
-const char* password = "HermesWaton";
+const char* ssid     = "tu_red_wifi";
+const char* password = "tu_contraseña";
 
 // La dirección del Excel (Google Sheets) donde se anotarán los datos
-const char* SHEETS_URL = "https://script.google.com/macros/s/AKfycbzaTBYKLCBcEypn2CnMuBvIoC5K5lWiQX7KSveCFqLumkzdJO3LunnjWyBDapQ87rtG/exec";
+const char* SHEETS_URL = "https://script.google.com/macros/s/TU_ID_DE_SCRIPT/exec";
 
 
 // VARIABLES GLOBALES
