@@ -8,10 +8,10 @@ Sistema IoT que monitorea el aforo en tiempo real de un espacio cerrado, detecta
 
 | Integrante | Rol principal | GitHub |
 |---|---|---|
-| Nicolás Ignacio Marinkovic Grant | Iteraciones / Documentación | [@nicoMgrt](https://github.com/nicoMgrt) |
-| Bárbara Carolina Chaparro Torres | Software / Firmware | [@barbarachaparro](https://github.com/barbarachaparro) |
-| Valentina Paz Ramírez Gómez | Diseño 3D | [@valenramirez-Hub](https://github.com/valenramirez-Hub) |
-| Cristóbal Pérez | Hardware / Software | [@CPerex](https://github.com/CPerex) |
+| Nicolás Marinkovic | Iteraciones / Documentación/ testing | [@nicoMgrt](https://github.com/nicoMgrt) |
+| Bárbara Chaparro | Software / Documentación / Firmware | [@barbarachaparro](https://github.com/barbarachaparro) |
+| Valentina Ramírez | Iteraciones / Diseño 3D | [@valenramirez-Hub](https://github.com/valenramirez-Hub) |
+| Cristóbal Pérez | Hardware / Software / Diseño 3D | [@CPerex](https://github.com/CPerex) |
 
 ---
 
