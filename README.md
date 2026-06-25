@@ -8,10 +8,10 @@ Sistema IoT que monitorea el aforo en tiempo real de un espacio cerrado, detecta
 
 | Integrante | Rol principal | GitHub |
 |---|---|---|
-| Nicolás Ignacio Marinkovic Grant | Software / Firmware | [@nicoMgrt](https://github.com/nicoMgrt) |
-| Bárbara Carolina Chaparro Torres | Hardware | [@barbarachaparro](https://github.com/barbarachaparro) |
+| Nicolás Ignacio Marinkovic Grant | Iteraciones / Documentación | [@nicoMgrt](https://github.com/nicoMgrt) |
+| Bárbara Carolina Chaparro Torres | Software / Firmware | [@barbarachaparro](https://github.com/barbarachaparro) |
 | Valentina Paz Ramírez Gómez | Diseño 3D | [@valenramirez-Hub](https://github.com/valenramirez-Hub) |
-| Cristóbal Pérez | Testing / Documentación | [@CPerex](https://github.com/CPerex) |
+| Cristóbal Pérez | Hardware / Software | [@CPerex](https://github.com/CPerex) |
 
 ---
 
@@ -29,7 +29,7 @@ Las bibliotecas y espacios cerrados de uso público no tienen una forma automát
 Sensores HC-SR04 (x2)
         ↓
    ESP32-S3
-   (detección direccional + servidor web local)
+(detección direccional + servidor web local)
         ↓
 Google Apps Script
         ↓
