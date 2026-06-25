@@ -19,7 +19,7 @@ Design Engineering Center · Universidad Adolfo Ibáñez · Junio 2026
 
 El sistema SIMA (Sistema Inteligente de Monitoreo de Aforo) es un dispositivo IoT de bajo costo diseñado para proveer información de ocupación en tiempo real de la Biblioteca de Pregrado de la Universidad Adolfo Ibáñez, Campus Peñalolén. El sistema resuelve una brecha de información identificada mediante encuesta a 69 estudiantes: el 74,2% ha tenido que abandonar la biblioteca por falta de espacio y el 39,7% pierde entre 5 y más de 10 minutos buscando un asiento disponible en hora peak.
 
-La solución integra dos sensores ultrasónicos Seeed Grove conectados a un microcontrolador ESP32-S3, que determina la dirección del flujo de personas según el orden de activación de los sensores. Los datos se almacenan en Google Sheets y se visualizan en un dashboard web local con indicador semafórico de ocupación. El costo total del prototipo es de $28.430 CLP, con una precisión global validada de 91,4% en 35 pruebas controladas y autonomía de 16 a 20 horas continuas.
+La solución integra dos sensores ultrasónicos Seeed Grove conectados a un microcontrolador ESP32-S3, que determina la dirección del flujo de personas según el orden de activación de los sensores. Los datos se almacenan en Google Sheets y se visualizan en un dashboard web local con indicador semafórico de ocupación. El costo total del prototipo es de $27.960 CLP, con una precisión global validada de 91,4% en 35 pruebas controladas y autonomía de 16 a 20 horas continuas.
 
 **Conclusión clave:** SIMA demuestra que es posible optimizar el uso de infraestructura educativa existente mediante tecnología IoT de bajo costo, sin expansión física y respetando la privacidad de los usuarios, en alineación con el ODS 11.
 
@@ -124,8 +124,8 @@ El prototipo está construido en dos módulos físicos conectados por cable: el 
 | Cable USB-A a USB-C | 30cm, conexión shield → ESP32-S3 (COM/UART) | 1 | $1.990 |
 | Jumper wires M-M | 20cm, 40 unidades | 1 set | $1.490 |
 | Protoboard 400 puntos | Conexión sin soldadura de sensores | 1 | $1.990 |
-| Filamento PLA | ~50g para encapsulado (impresora UAI) | 1 | $0 |
-| **TOTAL** | | | **$28.430** |
+| Filamento PLA | ~50g para encapsulado (impresora UAI) | 1 | $5.000 |
+| **TOTAL** | | | **$27.960** |
 
 ### 4.3 Software
 
@@ -171,13 +171,13 @@ Implementó el ciclo completo de datos con corrección crítica de GPIO (cambio 
 
 | Aspecto | v1 Alpha | v2 Beta | v4 Final |
 |---|---|---|---|
-| Sensores | HC-SR04 5V ❌ | Seeed 3.3V ✓ | Seeed 3.3V ✓ |
+| Sensores | HC-SR04 5V X | Seeed 3.3V ✓ | Seeed 3.3V ✓ |
 | GPIO sensores | Sin definir | GPIO1/GPIO10 ⚠ | GPIO4/GPIO5 ✓ |
-| Conectividad | Red UAI bloqueada ❌ | AP autónomo ✓ | Router + Sheets ✓ |
-| Almacenamiento | Sin persistencia ❌ | Sin persistencia ❌ | NVS + Sheets ✓ |
+| Conectividad | Red UAI bloqueada X | AP autónomo ✓ | Router + Sheets ✓ |
+| Almacenamiento | Sin persistencia X | Sin persistencia X | NVS + Sheets ✓ |
 | Autonomía | USB (sin batería) | ~6 horas | ~16-20 horas |
-| Falsos positivos | Sí ❌ | No ✓ | No (<5%) ✓ |
-| Encapsulado | Sin encapsulado ❌ | Boceto Fusion 360 | Gemelo 3D completo ✓ |
+| Falsos positivos | Sí X | No ✓ | No (<5%) ✓ |
+| Encapsulado | Sin encapsulado X | Boceto Fusion 360 | Gemelo 3D completo ✓ |
 | Precisión global | Sin medir | 4,8/5 (subjetivo) | 91,4% (35 pruebas) ✓ |
 
 ---
@@ -234,7 +234,7 @@ Con 8.000 estudiantes diarios en el campus y el 39,7% afectado por la falta de i
 
 - Sistema IoT funcional con detección direccional de personas y precisión global del 91,4%
 - Ciclo completo de datos implementado: captura → procesamiento → almacenamiento → visualización
-- Costo total de $28.430 CLP por nodo — viable para replicación institucional
+- Costo total de $27.960 CLP por nodo — viable para replicación institucional
 - Persistencia de datos ante cortes de energía: 100% en 5 reinicios forzados
 - Autonomía de 16-20 horas continuas — suficiente para una jornada completa de biblioteca
 - Encapsulado con diseño para reparación en campo, sin adhesivos permanentes
