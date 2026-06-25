@@ -1,94 +1,153 @@
-# Iteración 1 - Concepto Inicial
+# Iteración 1 — Concepto Inicial
 
 ## Información General
 
-* **Fecha:** Abril 2026
-* **Versión:** v1.0
-* **Estado:** Prototipo alpha - Prueba de concepto en laboratorio
-* **Avance asociado:** Laboratorio Inicial / Avance #2
+**Fecha:** Abril 2026
+**Versión:** v1.0
+**Estado:** Prototipo Alpha — Prueba de concepto en laboratorio
+**Avance asociado:** Laboratorio Inicial / Avance #2
+
+---
 
 ## Descripción
 
-Primera versión del prototipo, enfocada en validar la factibilidad técnica del concepto de conteo de aforo mediante sensores de proximidad.
+Primera versión del prototipo SIMA, enfocada en validar la factibilidad técnica del concepto de conteo de aforo mediante sensores de proximidad. Esta iteración corresponde al punto de partida del proyecto: circuito básico en protoboard, sin autonomía energética, sin almacenamiento persistente, y con los primeros problemas técnicos identificados que guiarían las iteraciones siguientes.
+
+**Contexto del problema que motiva esta iteración (Avance #1):**
+El levantamiento de datos previo identificó que el 74.2% de los estudiantes de la UAI ha tenido que abandonar la Biblioteca de Pregrado por falta de espacio, y el 39.7% pierde entre 5 y más de 10 minutos buscando asiento en hora peak (bloques M3–M5). La v1 fue el primer intento de responder a ese problema con hardware real.
+
 **Objetivo de esta iteración:**
-* Probar conexión de sensores ultrasónicos estándar.
-* Validar comunicación con microcontrolador y envío de datos vía Wi-Fi.
-* Demostrar concepto de actuación mediante un dashboard web local.
-* Circuito básico ensamblado en protoboard.
+- Probar conexión de sensores ultrasónicos con el ESP32-S3
+- Validar comunicación WiFi y servidor web local embebido
+- Demostrar concepto de dashboard de aforo en navegador
+- Identificar los problemas técnicos reales para planificar la v2
+
+---
 
 ## Componentes Utilizados
 
-**Hardware**
-* Microcontrolador: ESP32-S3 N16R8
-* Sensores: 2x Sensores Ultrasónicos HC-SR04 (4 pines)
-* Actuadores: Dashboard web HTML incrustado (Pantalla de dispositivo cliente)
-* Otros: Protoboard, cables jumper (macho-macho, macho-hembra), cable USB para alimentación.
+### Hardware
 
-**Software**
-* IDE: Arduino IDE (v2.x)
-* Librerías: `WiFi.h`, `WebServer.h`
-* Versión código: v1.0 (Básica)
+| Componente | Especificación | Problema identificado |
+|---|---|---|
+| ESP32-S3 N16R8 | MCU principal, 3.3V GPIO | — |
+| 2× HC-SR04 (4 pines) | Sensores ultrasónicos | Incompatibilidad 5V vs 3.3V |
+| Protoboard | Conexión sin soldadura | — |
+| Jumper wires M-M y M-H | Cableado | — |
+| Cable USB | Alimentación desde computador | Sin autonomía energética |
 
-## Fotos del Prototipo
+### Software
 
-*(Nota: Incluir en esta carpeta)*
-* `v1_circuito_protoboard.jpg`
-* `v1_vista_general.jpg`
-* `v1_detalle_conexiones.jpg`
+| Elemento | Detalle |
+|---|---|
+| IDE | Arduino IDE v2.x |
+| Librerías | `WiFi.h`, `WebServer.h` |
+| Versión firmware | v1.0 — lógica básica sin anti-rebote |
+| Conectividad | Red WiFi institucional UAI (con portal cautivo) |
+
+---
+
+## Fotos del Prototipo v1
+
+| Archivo | Descripción |
+|---|---|
+| `v1_circuito_protoboard.jpg` | Vista del circuito armado sobre protoboard |
+| `v1_vista_general.jpg` | Vista general del prototipo en mesa de laboratorio |
+| `v1_detalle_conexiones.jpg` | Detalle de las conexiones entre ESP32-S3 y sensores HC-SR04 |
+| `v1_notas.txt` | Bitácora de laboratorio con observaciones del equipo |
+
+---
 
 ## Resultados de Testing Inicial
 
-**Funcionalidad Lograda**
-* Levantar un servidor web básico incrustado en la placa.
-* Detección cruda de movimiento frente al sensor.
+### Funcionalidad Lograda
 
-**Funciones Fallidas**
-* Mantener conexión estable a la red institucional (UAI).
-* Lectura confiable de distancias de ambos sensores simultáneamente.
-* Lógica de conteo estricto (se registraban múltiples ingresos por una sola persona).
+✅ Servidor web básico embebido en la placa operativo
+✅ Detección cruda de presencia frente a los sensores
+
+### Funciones Fallidas
+
+❌ Conexión estable a la red WiFi institucional UAI (bloqueada por portal cautivo)
+❌ Lectura confiable y simultánea de distancias de ambos sensores
+❌ Lógica de conteo estricto — se registraban múltiples ingresos por una sola persona (falsos positivos)
+❌ Autonomía energética — dependencia total del cable USB al computador
+
+---
 
 ## Problemas Identificados
 
-**Problema 1: Incompatibilidad de niveles lógicos (Voltaje)**
-* **Descripción:** Los sensores fallaban al leer los ecos o enviaban señales peligrosas para la placa.
-* **Causa probable:** El sensor HC-SR04 opera con lógica de 5V, mientras que los pines GPIO de la ESP32-S3 operan a 3.3V. 
-* **Solución propuesta:** Migrar a sensores ultrasónicos Seeed de 3 pines que operan de forma nativa a 3.3V para proteger el hardware y simplificar el cableado.
+### Problema 1 — Incompatibilidad de Niveles Lógicos (Voltaje)
+- **Descripción:** Los sensores fallaban al leer los ecos o enviaban señales potencialmente peligrosas para los GPIO de la placa
+- **Causa:** El HC-SR04 opera con lógica de 5V en su pin ECHO, mientras que los GPIO del ESP32-S3 soportan máximo 3.3V. Riesgo real de daño permanente al microcontrolador
+- **Solución propuesta → Ejecutada en v2:** Migración a sensores Seeed Grove de 3 pines que operan de forma nativa a 3.3V — compatibilidad directa sin resistencias ni divisores de voltaje
 
-**Problema 2: Bloqueo de Red IoT**
-* **Descripción:** La ESP32-S3 no lograba establecer conexión estable a internet.
-* **Causa probable:** La red Wi-Fi de la universidad utiliza un "portal cautivo" (página de login) que los microcontroladores no pueden saltar automáticamente.
-* **Solución propuesta:** Modificar la arquitectura para que la ESP32 opere en modo Access Point (`WiFi.softAP`) o utilizar un Hotspot móvil (anclaje de red) para las pruebas de campo.
+### Problema 2 — Bloqueo de Red IoT por Portal Cautivo
+- **Descripción:** El ESP32-S3 no lograba establecer conexión estable a internet a través de la red WiFi de la universidad
+- **Causa:** La red UAI usa un portal cautivo (página de login) que los microcontroladores no pueden autenticar automáticamente — mecanismo de seguridad que bloquea dispositivos IoT
+- **Solución propuesta → Ejecutada en v2/v4:** Modo Access Point autónomo (`WiFi.softAP`) en v2, luego integración con router propio y Google Sheets en v4
 
-**Problema 3: Doble conteo (Falsos positivos)**
-* **Descripción:** Si un estudiante se detenía a conversar en el marco de la puerta, el sistema sumaba +1 repetidamente.
-* **Causa probable:** El código registraba el evento apenas se activaba el segundo sensor, sin esperar a que la persona liberara el espacio.
-* **Solución propuesta:** Rediseñar la máquina de estados en el código (filtro anti-rebote lógico) para consolidar el conteo solo cuando ambos sensores vuelvan a estado de reposo.
+### Problema 3 — Doble Conteo (Falsos Positivos)
+- **Descripción:** Si una persona se detenía a conversar en el marco de la puerta, el sistema registraba múltiples entradas repetidamente
+- **Causa:** El código consolidaba el conteo al detectar la activación del segundo sensor, sin esperar a que la persona liberara completamente el espacio
+- **Solución propuesta → Ejecutada en v2:** Máquina de estados con filtro anti-rebote — el conteo se consolida únicamente cuando ambos sensores vuelven a estado de reposo (`!detectaA && !detectaB`)
+
+### Problema 4 — Sin Autonomía Energética
+- **Descripción:** El sistema dependía del cable USB conectado a un computador — no podía instalarse en la puerta de la biblioteca de forma autónoma
+- **Causa:** Sin batería ni circuito de gestión de energía
+- **Solución propuesta → Ejecutada en v2:** Battery Shield V3 + celda Li-ion NCR18650B Panasonic 3400mAh — autonomía de >6h en v2, escalada a 16–20h en v4 con modo modem sleep
+
+---
 
 ## Aprendizajes
 
-**Técnicos**
-* Es imperativo verificar siempre los niveles lógicos de voltaje (3.3V vs 5V) de las hojas de datos (datasheets) antes de interconectar módulos.
-* Las redes institucionales no están preparadas para el despliegue directo de dispositivos IoT autónomos debido a sus protocolos de seguridad.
+### Técnicos
+1. Verificar siempre los niveles lógicos de voltaje en los datasheets antes de interconectar módulos — la diferencia entre 3.3V y 5V puede dañar hardware irreversiblemente
+2. Las redes institucionales no están preparadas para el despliegue directo de dispositivos IoT autónomos — planificar la conectividad desde el diseño inicial
 
-**De Diseño**
-* El comportamiento real del usuario es impredecible. El hardware y el software deben estar preparados para oclusiones prolongadas (personas detenidas en las puertas) sin corromper la base de datos de aforo.
+### De Diseño
+1. El comportamiento real del usuario es impredecible — el sistema debe manejar oclusiones prolongadas (personas paradas en la puerta) sin corromper los datos de aforo
+2. La prueba de concepto mínima (v1) es indispensable para identificar problemas reales que no son predecibles en papel
 
-## Plan para Iteración 2
+---
 
-**Mejoras Planificadas**
+## Comparación con Versiones Posteriores
 
-* **Hardware:**
-  * Reemplazar los HC-SR04 por sensores ultrasónicos Seeed (3 pines).
-  * Integrar un *Battery Shield V3* y una celda Li-ion 18650 de 3400mAh para independizar energéticamente el prototipo.
-* **Software:**
-  * Implementar secuencia estricta de validación direccional en el código C++.
-  * Migrar a red independiente (Hotspot temporal / modo AP).
-* **Diseño:**
-  * Iniciar diseño de encapsulado tridimensional (gemelo digital) en Fusion 360 para organizar la placa, el shield y la batería.
+| Aspecto | v1 Alpha | v2 Beta | v4 Final |
+|---|---|---|---|
+| Sensores | HC-SR04 5V ❌ | Seeed 3.3V ✅ | Seeed 3.3V ✅ |
+| GPIO sensores | Sin definir | GPIO1/GPIO10 ⚠️ | GPIO4/GPIO5 ✅ |
+| Conectividad | Red UAI ❌ | AP autónomo ✅ | Router + Sheets ✅ |
+| Falsos positivos | Sí ❌ | No ✅ | No (<5%) ✅ |
+| Autonomía energética | USB ❌ | ~6h ✅ | ~16–20h ✅ |
+| Almacenamiento datos | Sin persistencia ❌ | Sin persistencia ❌ | NVS + Sheets ✅ |
+| Dashboard | Web básico | Semáforo dinámico | Semáforo + estadísticas |
+| Encapsulado | Sin encapsulado ❌ | Boceto Fusion 360 | Gemelo 3D completo ✅ |
+| Precisión global | Sin medir | 4.8/5 (subjetivo) | 91.4% (35 pruebas) ✅ |
+
+---
+
+## Plan para Iteración 2 — Estado de Ejecución
+
+| Mejora planificada | Estado |
+|---|---|
+| Reemplazar HC-SR04 por Seeed Grove 3 pines | ✅ Ejecutado en v2 |
+| Integrar Battery Shield V3 + celda NCR18650B | ✅ Ejecutado en v2 |
+| Implementar secuencia estricta A→B / B→A | ✅ Ejecutado en v2 |
+| Migrar a red independiente (AP/Hotspot) | ✅ Ejecutado en v2 |
+| Iniciar diseño de encapsulado en Fusion 360 | ✅ Ejecutado en v2 |
+
+---
 
 ## Archivos en esta Carpeta
 
-* `v1_codigo.ino` - Código inicial con errores de rebote.
-* `v1_esquema.png` - Esquema del circuito inicial (5V a 3.3V).
-* `v1_fotos/` - Fotografías del prototipo sobre la mesa.
-* `v1_notas.txt` - Bitácora de laboratorio.
+| Archivo | Descripción |
+|---|---|
+| `v1_codigo.ino` | Firmware inicial con lógica básica y errores de rebote documentados |
+| `v1_esquema.png` | Esquema del circuito inicial con HC-SR04 a 5V |
+| `v1_fotos/` | Fotografías del prototipo sobre protoboard en laboratorio |
+| `v1_notas.txt` | Bitácora de laboratorio con observaciones del equipo |
+
+---
+
+*TEI201 — Taller de Diseño en Ingeniería · Universidad Adolfo Ibáñez · 2026*
+*Proyecto SIMA — Nicolás Marinkovic · Bárbara Chaparro · Valentina Ramírez · Cristóbal Pérez*
