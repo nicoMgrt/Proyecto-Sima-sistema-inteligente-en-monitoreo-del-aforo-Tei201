@@ -52,10 +52,12 @@ Segunda versión del prototipo, incorporando feedback de la iteración 1 y del A
 
 **Funcionalidad Lograda**
 
-* ✅ Autonomía energética (funcionamiento >6 horas continuas).
-* ✅ Conteo bidireccional sin falsos positivos por rebote.
-* ✅ Despliegue de Interfaz Gráfica (Semáforo dinámico de aforo).
-* ⚠️ Almacenamiento persistente de datos (Parcial: El contador se reinicia si la placa pierde energía).
+* Autonomía energética (funcionamiento >6 horas continuas).
+* Conteo bidireccional sin falsos positivos por rebote.
+* Despliegue de Interfaz Gráfica (Semáforo dinámico de aforo).
+
+Hay un pseudo problema
+* Almacenamiento persistente de datos (Parcial: El contador se reinicia si la placa pierde energía).
 
 ## Feedback del Avance #2
 
@@ -89,11 +91,11 @@ Segunda versión del prototipo, incorporando feedback de la iteración 1 y del A
 
 | Aspecto | v1 | v2 | Mejora |
 | :--- | :--- | :--- | :--- |
-| **Estabilidad Eléctrica** | Inestable (Lógica 5V vs 3.3V) | Estable (Lógica 3.3V nativa) | ✅ Hardware seguro |
-| **Conectividad** | Bloqueo por portal cautivo | Red autónoma (AP/Hotspot) | ✅ 100% |
-| **Precisión de Conteo** | Rebotes / Falsos positivos | Secuencia estricta validada | ✅ |
-| **Autonomía** | Dependiente de USB | Independiente (Li-ion 18650) | ✅ |
-| **Encapsulado** | ❌ Inexistente | Prototipo CAD (Fusion 360) | ✅ |
+| **Estabilidad Eléctrica** | Inestable (Lógica 5V vs 3.3V) | Estable (Lógica 3.3V nativa) | Logrado, hardware seguro |
+| **Conectividad** | Bloqueo por portal cautivo | Red autónoma (AP/Hotspot) | Logrado 100% |
+| **Precisión de Conteo** | Rebotes / Falsos positivos | Secuencia estricta validada | Logrado |
+| **Autonomía** | Dependiente de USB | Independiente (Li-ion 18650) | Logrado |
+| **Encapsulado** | Inexistente | Prototipo CAD (Fusion 360) | Logrado |
 
 ## Plan para Iteración 3 (Versión Final)
 
