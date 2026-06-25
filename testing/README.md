@@ -21,9 +21,9 @@ Datos cuantitativos recolectados
 ## Metodología de Testing
 
 ### Grupo Objetivo
-- **Perfil de usuarios:** [Descripción]
+- **Perfil de usuarios:** Universitarios que estudian en la biblioteca F de la UAI
 - **Cantidad mínima:** 5 usuarios
-- **Ubicación:** [Contexto real de uso]
+- **Ubicación:** El dispositivo IoT estará ubicado dentro de la biblioteca F, UAI, cerca de la entrada pero a una distancia moderada de la puerta para que los sensores no confundan su movimiento, de las personas que pasan.
 
 ### Protocolo de Testing
 1. **Briefing** (5 min)
