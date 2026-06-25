@@ -88,7 +88,7 @@ El dispositivo detecta si una persona **entra o sale** según qué sensor ultras
 
 ### 4. Ver los datos históricos
 
-- 📊 **Google Sheets:** [Ver datos en tiempo real](https://docs.google.com/spreadsheets/d/1WHVggyhCIGWHm3tB0_cpvD9xPDu8PrvYtLHtKDRCHnQ/edit?usp=drivesdk)
+- 📊 **Google Sheets:** [Ver datos en tiempo real](https://docs.google.com/spreadsheets/d/tu IP)
 - 📈 **Google Looker Studio:** *Link disponible próximamente*
 
 ---
