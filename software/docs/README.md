@@ -18,8 +18,8 @@ Se van a exportar en otra parte los diagramas de flujo, los cuales son tres:
 - **Parámetros: pin (int) - Especifica el pin del sensor a leer (por ejemplo, SIG_A o SIG_B).  Retorna: long - La distancia calculada en centímetros. Si el eco no devuelve señal (0), asume que no hay nadie y retorna 999.**
 - **Ejemplo de uso:**
 ```cpp
-// long distA = medirDistancia(SIG_A);
-//long distB = medirDistancia(SIG_B);
+long distA = medirDistancia(SIG_A);
+long distB = medirDistancia(SIG_B);
 ```
 **enviarASheets()**
 - **Propósito: Mete un "sobre" de datos virtuales a la sala de espera (cola) para que el procesador secundario lo envíe a Google Sheets. Esto registra si el evento fue una entrada o salida junto con el aforo actual.**
@@ -27,7 +27,7 @@ Se van a exportar en otra parte los diagramas de flujo, los cuales son tres:
 - **Retorna: void**
 - **Ejemplo de uso:**
 ```cpp
-//enviarASheets("ENTRADA");
+enviarASheets("ENTRADA");
 ```
 **verificarResetPorTiempo()**
 - **Propósito: Se asegura de reiniciar el contador de aforo a cero si el equipo detecta que pasó mucho tiempo apagado (por ejemplo, más de 2 horas) durante el inicio de un nuevo día.**
