@@ -60,8 +60,8 @@ El sistema detecta si una persona **entra o sale** según qué sensor se activa 
 | Cable USB-A a USB-C | 1 | 30cm, conexión shield → ESP32-S3 (COM/UART) | $1.990 |
 | Jumper wires M-M | 1 set | 20cm, 40 unidades | $1.490 |
 | Protoboard 400 puntos | 1 | Conexión sin soldadura | $1.990 |
-| Filamento PLA | ~50g | Encapsulado impreso en 3D | $0 |
-| **TOTAL** | | | **$28.430 CLP** |
+| Filamento PLA | ~50g | Encapsulado impreso en 3D | $5.000 |
+| **TOTAL** | | | **$27.960 CLP** |
 
 ---
 
@@ -109,7 +109,7 @@ http://[IP_DEL_DISPOSITIVO]/admin-reset-biblioteca
 
 ### 5. Ver los datos históricos
 
-- 📊 **Google Sheets:** [Ver registro de eventos](https://docs.google.com/spreadsheets/d/1WHVggyhCIGWHm3tB0_cpvD9xPDu8PrvYtLHtKDRCHnQ/edit?usp=drivesdk)
+- 📊 **Google Sheets:** [Ver registro de eventos](https://docs.google.com/spreadsheets/d/TU_ID_DE_SCRIPT)
 - 📈 **Google Looker Studio:** *Próximamente*
 
 ---
