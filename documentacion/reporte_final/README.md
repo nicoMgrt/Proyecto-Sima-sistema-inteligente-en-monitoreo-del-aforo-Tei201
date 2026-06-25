@@ -7,7 +7,7 @@
 |---|---|
 | Nicolás Marinkovic | Documentación / Iteración / Testing |
 | Bárbara Chaparro | Software / Firmware / Documentación |
-| Valentina Ramírez | Diseño 3D |
+| Valentina Ramírez | Iteración / Diseño 3D |
 | Cristóbal Pérez | Software / Hardwear / Diseño 3D |
 
 **Taller de Diseño en Ingeniería — TEI201**
