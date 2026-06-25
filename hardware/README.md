@@ -88,5 +88,5 @@ Fotografías de alta resolución del prototipo ensamblado
 | Contador no sube al pasar la mano | Objeto estático frente a un sensor | Alejar obstáculos, verificar que "Sensor bloqueado" no aparezca en Serial Monitor |
 | No envía datos a Sheets | HTTP 400 o sin WiFi | Verificar credenciales WiFi y URL del script en el código |
 | ESP32 en boot loop | Board incorrecto en Arduino IDE | Seleccionar ESP32S3 Dev Module, hacer erase flash |
-## Instrucciones de Ensamble
+
 
