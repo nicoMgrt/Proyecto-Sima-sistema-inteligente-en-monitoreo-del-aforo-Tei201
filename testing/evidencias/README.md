@@ -1,67 +1,70 @@
-# Evidencias de Testing
+# Evidencias de Testing — SIMA
 
 ## Contenido Requerido
 
 ### Fotografías
 
-#### Sesiones con Usuarios
-- `sesion_usuario_01.jpg`
-- `sesion_usuario_02.jpg`
-- `sesion_usuario_03.jpg`
-- `sesion_usuario_04.jpg`
-- `sesion_usuario_05.jpg`
+#### Prototipo Ensamblado
+- `prototipo_frontal_01.jpg` — Vista frontal del encapsulado terminado con orificios de sensores visibles
+- `prototipo_lateral_01.jpg` — Vista lateral mostrando orificio micro USB y switch de encendido
+- `prototipo_interior_01.jpg` — Vista con tapa removida mostrando componentes internos (ESP32-S3, batería, sensores)
 
 **Requisitos:**
-- Mínimo 1 foto por usuario
-- Mostrar interacción con prototipo
-- Rostros difuminados si no hay consentimiento
-- Contexto de uso visible
+- Buena iluminación, sin sombras sobre los componentes
+- Fondo neutro (mesa blanca o gris)
+- Al menos 1200×900 px de resolución
 
 #### Instalación en Terreno
-- `instalacion_contexto_01.jpg`
-- `instalacion_contexto_02.jpg`
+- `instalacion_puerta_01.jpg` — Dispositivo instalado en el marco de la puerta de la Biblioteca F, UAI
+- `instalacion_contexto_01.jpg` — Vista general que muestra la ubicación del dispositivo en el acceso de la biblioteca con referencia de escala
 
 **Requisitos:**
-- Prototipo instalado en ubicación objetivo
-- Referencia de escala (personas, objetos conocidos)
-- Condiciones reales de operación
+- El dispositivo debe ser claramente visible en la imagen
+- Incluir referencia de escala (una persona de pie cerca, o una regla)
+- Mostrar condición real de operación (iluminación natural del recinto)
+
+#### Dashboard y Monitoreo
+- `dashboard_web_captura.png` — Captura del dashboard web en el navegador mostrando porcentaje de ocupación y estado de color
+- `monitor_serial_captura.png` — Captura del Monitor Serial de Arduino IDE mostrando detecciones en tiempo real (líneas `¡Alguien entró!` o `¡Alguien salió!`)
+- `sheets_captura.png` — Captura de Google Sheets con filas de eventos registrados, timestamp y total de personas
 
 ---
 
 ### Videos
 
-#### Video de Demostración con Usuario
-`demo_usuario_real.mp4`
+#### Video de Funcionamiento del Sistema
+`demo_sima_funcionando.mp4`
 
 **Contenido:**
-- Duración: 2-5 minutos
-- Usuario interactuando con prototipo
-- Voz en off explicando proceso (opcional)
+- Duración: 2–4 minutos
+- Mostrar el dispositivo encendido y conectado
+- Realizar 2–3 cruces de entrada y salida frente a la cámara
+- Mostrar en paralelo cómo cambia el contador en el dashboard web
+- Mostrar cómo aparece el nuevo evento en Google Sheets con timestamp
 - Calidad mínima: 720p
 
-#### Video de Funcionamiento en Contexto
-`funcionamiento_contexto.mp4`
+#### Video de Contexto de Instalación
+`instalacion_contexto.mp4`
 
 **Contenido:**
-- Duración: 1-3 minutos
-- Prototipo operando en ubicación real
-- Condiciones ambientales visibles
-- Datos/indicadores en pantalla (si aplica)
+- Duración: 1–2 minutos
+- Dispositivo instalado en el marco real de la puerta de la Biblioteca F
+- Mostrar el ángulo y la posición de ambos sensores
+- Mostrar una o dos personas cruzando naturalmente mientras el sistema opera
 
 ---
 
 ## Privacidad y Consentimiento
 
 ### Antes de Fotografiar/Grabar
-- [ ] Obtener consentimiento informado verbal o escrito
-- [ ] Explicar uso de imágenes (proyecto académico)
-- [ ] Ofrecer opción de anonimato
+- Obtener consentimiento verbal de personas que aparezcan en las imágenes
+- Explicar que las imágenes son para un proyecto académico de la UAI (TEI201)
+- Ofrecer la opción de no aparecer o de difuminar el rostro
 
 ### Anonimización
-Si no hay consentimiento para mostrar rostros:
-- Difuminar rostros en fotos
-- Tomas desde ángulos que no muestren cara
-- Usar iniciales en lugar de nombres completos
+Si no hay consentimiento explícito para mostrar rostros:
+- Tomar fotos desde ángulos que no muestren la cara (de espalda, de lado, de lejos)
+- El prototipo es el sujeto principal de las imágenes — las personas son contexto
 
 ---
 
@@ -70,19 +73,20 @@ Si no hay consentimiento para mostrar rostros:
 ```
 evidencias/
 ├── fotos/
-│   ├── sesiones_usuarios/
-│   │   ├── sesion_U01_[fecha].jpg
-│   │   ├── sesion_U02_[fecha].jpg
-│   │   └── ...
-│   └── instalacion_terreno/
-│       ├── instalacion_exterior_01.jpg
-│       └── instalacion_detalle_02.jpg
-├── videos/
-│   ├── demo_usuario_U01.mp4
-│   └── funcionamiento_24hrs.mp4
-└── consentimientos/
-    ├── consentimiento_U01.pdf
-    └── ...
+│   ├── prototipo/
+│   │   ├── prototipo_frontal_01.jpg
+│   │   ├── prototipo_lateral_01.jpg
+│   │   └── prototipo_interior_01.jpg
+│   ├── instalacion/
+│   │   ├── instalacion_puerta_01.jpg
+│   │   └── instalacion_contexto_01.jpg
+│   └── capturas/
+│       ├── dashboard_web_captura.png
+│       ├── monitor_serial_captura.png
+│       └── sheets_captura.png
+└── videos/
+    ├── demo_sima_funcionando.mp4
+    └── instalacion_contexto.mp4
 ```
 
 ---
@@ -91,19 +95,24 @@ evidencias/
 
 **Fotos:**
 ```
-[tipo]_[identificador]_[fecha].jpg
+[tipo]_[descripcion]_[numero].jpg
 
-Ejemplos:
-sesion_U01_20241120.jpg
-instalacion_exterior_20241121.jpg
-detalle_sensor_20241120.jpg
+Ejemplos reales del proyecto:
+prototipo_frontal_01.jpg
+instalacion_puerta_01.jpg
+dashboard_web_captura.png
 ```
 
 **Videos:**
 ```
-[tipo]_[descripcion]_[fecha].mp4
+[tipo]_[descripcion].mp4
 
-Ejemplos:
-demo_usuario_U01_20241120.mp4
-funcionamiento_24hrs_20241121.mp4
+Ejemplos reales del proyecto:
+demo_sima_funcionando.mp4
+instalacion_contexto.mp4
 ```
+
+---
+
+*TEI201 — Taller de Diseño en Ingeniería · Universidad Adolfo Ibáñez · 2026*
+*Proyecto SIMA — Nicolás Marinkovic · Bárbara Chaparro · Valentina Ramírez · Cristóbal Pérez*
