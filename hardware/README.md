@@ -1,22 +1,5 @@
 # Hardware - Documentación
 
-## Contenido
-Esta carpeta contiene toda la documentación técnica del hardware del proyecto.
-
-### 📁 Carpetas
-
-#### `esquemas/`
-Diagramas de circuitos y esquemáticos del sistema
-
-#### `bom/`
-Bill of Materials (Lista de materiales)
-
-#### `fotos/`
-Fotografías de alta resolución del prototipo ensamblado
-
----
-Acá está completo con los datos reales de tu proyecto:
-markdown# Hardware - Documentación
 
 ## Contenido
 Esta carpeta contiene toda la documentación técnica del hardware del proyecto.
